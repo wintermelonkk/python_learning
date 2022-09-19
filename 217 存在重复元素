@@ -1,0 +1,15 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        if len(nums) == 0 or len(nums) == 1:
+            return False
+
+        hashTable = {}
+        for num in nums:
+            if num not in hashTable:
+                hashTable[num] = 1
+            else:
+                return True
+        
+        for value in hashTable.values():
+            if value < 2:
+                return False
