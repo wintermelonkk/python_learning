@@ -12,5 +12,25 @@ class Solution:
         
         for value in hashTable.values():
             if value < 2:
-                return False
+                return False     # 貌似有点问题  value 1,1,1,2 前面没遍历到2就false嘛？
 
+
+
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        if len(nums) == 0 or len(nums) == 1:
+            return False
+
+        hashTable = {}
+        for num in nums:
+            if num not in hashTable:
+                hashTable[num] = 1
+            else:
+                hashTable[num] = hashTable.get(num) + 1   #这一步 不是hashTable[num] += 1  注意是更新value
+        
+        for value in hashTable.values():
+            if value > 1:
+                return True
+            
+        return False    #这个的位置很重要
