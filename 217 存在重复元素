@@ -13,3 +13,4 @@ class Solution:
         for value in hashTable.values():
             if value < 2:
                 return False
+
